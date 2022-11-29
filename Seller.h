@@ -65,11 +65,13 @@ float Seller::get_earnings() {
 }
 
 Product Seller::get_product(int _id) {
+	Product p;
 	for (int i = 0; i < index; i++) {
 		if (products[i].get_id() == _id) {
 			return products[i];
 		}
 	}
+	return p;
 }
 
 std::string Seller::get_name() {
