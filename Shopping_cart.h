@@ -13,17 +13,23 @@ private:
 	int quantity[100];
 	int index = 0;
 public:
+	//Builders
 	Shopping_cart() : products(), cost(), quantity(){}
 
+	//Setters
 	void set_cost(float, int);
 	void set_quantity(int, int);
 	void set_products(std::string, int);
 	void set_index(int);
 
+	//Getters
 	float get_final();
-
+	std::string get_products(int);
+	int get_quantity(int);
+	float get_cost(int);
 };
 
+//Setters
 void Shopping_cart::set_cost(float _cost, int index) {
 	cost[index] = _cost;
 }
@@ -40,6 +46,7 @@ void Shopping_cart::set_index(int _index) {
 	index = _index;
 }
 
+//Getters
 float Shopping_cart::get_final() {
 	float final_cost = 0.0;
 	for (int i = 0; i < index; i++) {
@@ -47,5 +54,17 @@ float Shopping_cart::get_final() {
 	}
 
 	return final_cost;
+}
+
+std::string Shopping_cart::get_products(int index) {
+	return products[index];
+}
+
+int Shopping_cart::get_quantity(int index) {
+	return quantity[index];
+}
+
+float Shopping_cart::get_cost(int index) {
+	return cost[index];
 }
 #endif

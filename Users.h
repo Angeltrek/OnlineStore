@@ -6,7 +6,7 @@
 
 class Users
 {
-private:
+protected:
 	std::string email;
 	std::string password;
 	std::string name;
@@ -14,6 +14,7 @@ private:
 	bool login = false;
 public:
 
+	//Builders
 	Users() : email(), password(), name(), last_name() {}
 
 	Users(std::string _email, std::string _password, std::string _name, std::string _last_name) {
@@ -23,11 +24,21 @@ public:
 		last_name = _last_name;
 	}
 
-	 void check_login(bool);
+	 //Setters
+	 void set_login(bool);
+
+	 //Getters
+	 bool get_login();
 };
 
-void Users::check_login(bool _login) {
+//Setters
+void Users::set_login(bool _login) {
 	login = _login;
+}
+
+//Getters
+bool Users::get_login() {
+	return login;
 }
 
 #endif
