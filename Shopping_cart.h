@@ -4,7 +4,7 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include "seller.h"
+#include "Seller.h"
 
 class Shopping_cart {
 private:
