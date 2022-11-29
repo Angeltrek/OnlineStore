@@ -12,6 +12,7 @@ int index_customers = 0;
 
 int customer_id = -1;
 
+// Sirve para agregar un cliente a la variable customers[]
 void add_customer(string email, string password, string name,
 	string last_name, string address, string number, string cvv, string expiration, float money) {
 	Customer c(email, password, name, last_name, address, number, cvv, expiration, money);
@@ -19,6 +20,7 @@ void add_customer(string email, string password, string name,
 	index_customers += 1;
 }
 
+// Sirve para registrarse como cliente
 void sign_in() {
 	int num = 0;
 	string email;
@@ -26,10 +28,10 @@ void sign_in() {
 	string name;
 	string last_name;
 	string address;
-	string number;
-	string cvv;
-	string expiration;
-	float money;
+	string number; // Numero de la tarjeta de credito
+	string cvv; // Cvv de la tarjeta de credito
+	string expiration; // Expiracion de la tarjeta de credito
+	float money; // Dinero en la tarjeta de credito
 
 	cout << "Email: " << "\n";
 	cin >> email;
@@ -55,6 +57,7 @@ void sign_in() {
 	cout << "Te has registrado!" << "\n\n";
 }
 
+// Sirve para imprimir todos los productos por vendedor
 void print_products() {
 	for (int i = 0; i < index_sellers; i++) {
 		cout << sellers[i].get_name() << "\n";
@@ -65,6 +68,7 @@ void print_products() {
 
 int main() {
 
+	// Cliente predeterminado para pruebas email: admin@gmail.com contraseña: admin
 	add_customer("admin@gmail.com", "admin", "Admin", "admin", "Africa", "1234-1234-1234-1234", "123", "07/26", 120678.0);
 
 	int num = 0;
@@ -95,11 +99,13 @@ int main() {
 		cin >> num;
 
 		switch(num) {
+			// Registrarse
 			case 1: {
 				sign_in();
 				break;
 				
 			}
+			// Ingresar
 			case 2: {
 				string email;
 				string password;
@@ -131,10 +137,12 @@ int main() {
 				}
 				break;
 			}
+			// Ver productos
 			case 3: {
 				print_products();
 				break;
 			}
+			// Agregar al carrito
 			case 4: {
 				if (!customers[customer_id].get_login()) {
 					cout << "Debes de iniciar sesion!" << "\n\n";
@@ -162,9 +170,11 @@ int main() {
 				}
 				break;
 			}
+			// Ver carrito
 			case 5: {
 				customers[customer_id].show_shopping();
 			}
+			// Cerrar sesion
 			case 9: {
 				customers[customer_id].set_login(false);
 				cout << "Has cerrado sesion!" << "\n\n";
