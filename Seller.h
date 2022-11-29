@@ -86,7 +86,7 @@ void Seller::add_product(int _id, std::string _category, std::string _name, floa
 
 void Seller::show_products() {
 	for (int i = 0; i < index; i++) {
-		std::cout << products[i].get_id() << " Producto: " << products[i].get_name() << 
+		std::cout << "ID: " << products[i].get_id() << " Producto: " << products[i].get_name() <<
 			" Cantidad: " << products[i].get_amount() << " Precio: " << products[i].get_price() << "\n";
 	}
 }
