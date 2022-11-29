@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Seller.h"
-#include "Customer.h";
+#include "Customer.h"
 
 using namespace std;
 
@@ -69,7 +69,7 @@ void print_products() {
 int main() {
 
 	// Cliente predeterminado para pruebas email: admin@gmail.com contraseña: admin
-	add_customer("admin@gmail.com", "admin", "Admin", "admin", "Africa", "1234-1234-1234-1234", "123", "07/26", 120678.0);
+	add_customer("admin", "admin", "ADMIN", "ADMIN", "Africa", "1234-1234-1234-1234", "123", "07/26", 1234);
 
 	int num = 0;
 
@@ -131,9 +131,6 @@ int main() {
 							cout << "Contraseña incorrecta!" << "\n\n";
 						}
 					}
-					else {
-						cout << "No se encuentra una cuenta con ese correo!" << "\n\n";
-					}
 				}
 				break;
 			}
@@ -172,12 +169,16 @@ int main() {
 			}
 			// Ver carrito
 			case 5: {
-				customers[customer_id].show_shopping();
+				if (customers[customer_id].get_login()) {
+					customers[customer_id].show_shopping();
+				}
+				break;
 			}
 			// Cerrar sesion
 			case 9: {
 				customers[customer_id].set_login(false);
 				cout << "Has cerrado sesion!" << "\n\n";
+				break;
 			}
 		}
 	}
