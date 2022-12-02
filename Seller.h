@@ -39,7 +39,6 @@ public:
 
 	//Setters
 	void set_license(bool);
-	void set_earnings(float);
 	void set_amount(int, int);
 
 	//Getters
